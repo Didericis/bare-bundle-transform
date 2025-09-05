@@ -1,0 +1,6 @@
+{
+  "name": "foo-bar",
+  "version": "0.0.1",
+  "description": "Dummy package that should be transformed",
+  "main": "index.js"
+}

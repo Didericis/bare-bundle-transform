@@ -1,0 +1,43 @@
+{
+  "name": "bare-bundle-transform",
+  "version": "0.0.1",
+  "description": "File transformations for bare-bundle",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && npm run test:transform && npm run test:bare",
+    "test:transform": "bare-pack ./test/support/app.js | ./bin.js --plugin ./test/support/regexpu.js -o ./test/support/app.bundle",
+    "test:bare": "bare test/bare.js",
+    "lint": "prettier . --check"
+  },
+  "author": "Didericis",
+  "license": "Apache-2.0",
+  "prettier": "prettier-config-standard",
+  "bin": {
+    "bare-bundle-transform": "bin.js"
+  },
+  "imports": {
+    "fs": {
+      "bare": "bare-fs",
+      "default": "node:fs"
+    },
+    "url": {
+      "bare": "bare-url",
+      "default": "node:url"
+    },
+    "process": {
+      "bare": "bare-process",
+      "default": "node:process"
+    }
+  },
+  "devDependencies": {
+    "bare-pack": "^1.4.5",
+    "brittle": "^3.18.3",
+    "prettier": "^3.6.2",
+    "prettier-config-standard": "^7.0.0",
+    "regexpu": "^4.8.0"
+  },
+  "dependencies": {
+    "bare-bundle": "^1.9.0",
+    "paparam": "^1.8.5"
+  }
+}

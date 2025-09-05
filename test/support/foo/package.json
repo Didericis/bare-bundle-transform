@@ -1,0 +1,6 @@
+{
+  "name": "foo",
+  "version": "0.0.1",
+  "description": "Dummy package that should not be transformed",
+  "main": "index.js"
+}
