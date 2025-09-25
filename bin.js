@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const Bundle = require('bare-bundle')
 const fs = require('fs')
+const path = require('path')
 const { command, flag, arg, summary } = require('paparam')
 const process = require('process')
 const { pathToFileURL } = require('url')
@@ -43,11 +44,15 @@ const cmd = command(
     const { version, plugin: pluginFiles, out } = cmd.flags
     if (version) return console.log(`v${pkg.version}`)
 
-    const plugins = (pluginFiles || []).map(require)
+    const cwd = process.cwd()
+
+    const plugins = (pluginFiles || []).map((pluginFile) =>
+      require(path.join(cwd, pluginFile))
+    )
 
     let bundle
     if (file) {
-      bundle = await readBundleFromFile(file)
+      bundle = await readBundleFromFile(path.join(cwd, file))
     } else {
       bundle = await readBundleFromStdin()
     }
