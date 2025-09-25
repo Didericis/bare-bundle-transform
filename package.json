@@ -1,6 +1,6 @@
 {
   "name": "bare-bundle-transform",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "File transformations for bare-bundle",
   "main": "index.js",
   "scripts": {
