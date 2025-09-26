@@ -6,6 +6,7 @@ const { command, flag, arg, summary } = require('paparam')
 const process = require('process')
 const { pathToFileURL } = require('url')
 const pkg = require('./package')
+const { createRequire } = require('node:module')
 
 function readBundleFromFile(filePath) {
   return new Promise((resolve, reject) => {
@@ -53,7 +54,7 @@ const cmd = command(
   async (cmd) => {
     const {
       version,
-      plugin: pluginFiles,
+      plugin: pluginSources,
       out,
       encoding = 'utf8',
       format = defaultFormat(out)
@@ -71,9 +72,12 @@ const cmd = command(
 
     const cwd = process.cwd()
 
-    const plugins = (pluginFiles || []).map((pluginFile) =>
-      require(path.join(cwd, pluginFile))
-    )
+    // creates a require that acts as if we're in the cwd
+    const relRequire = createRequire(path.join(cwd, 'mock-file.js'))
+
+    const plugins = (pluginSources || []).map((src) => {
+      return relRequire(src)
+    })
 
     let bundle
     if (file) {
@@ -82,11 +86,16 @@ const cmd = command(
       bundle = await readBundleFromStdin()
     }
 
+    const transformationsInProgress = []
     for (const [name, data, mode] of bundle) {
       for (const plugin of plugins) {
-        plugin(bundle, { name, data, mode })
+        const result = plugin(bundle, { name, data, mode })
+        if (result instanceof Promise) {
+          transformationsInProgress.push(result)
+        }
       }
     }
+    await Promise.all(transformationsInProgress)
 
     let data = bundle.toBuffer()
     switch (format) {

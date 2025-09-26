@@ -1,0 +1,9 @@
+{
+  "name": "project",
+  "version": "0.0.1",
+  "main": "app.js",
+  "devDependencies": {
+    "@babel/plugin-transform-unicode-regex": "^7.27.1",
+    "bare-bundle-transform-plugin-babel": "^1.0.0"
+  }
+}

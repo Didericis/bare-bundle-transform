@@ -4,7 +4,7 @@
  * @returns {boolean}
  */
 function fooBar(str) {
-  return str.match(/foo(.)bar/u)
+  return str.match(/\p{L}/gu)
 }
 
 module.exports = fooBar

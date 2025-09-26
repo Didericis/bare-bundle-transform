@@ -4,9 +4,12 @@
   "description": "File transformations for bare-bundle",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && npm run test:transform && npm run test:bare",
-    "test:transform": "bare-pack ./test/support/app.js | ./bin.js --plugin ./test/support/regexpu.js -o ./test/support/app.bundle",
-    "test:bare": "bare test/bare.js",
+    "test": "npm run lint && npm run test:build-project && npm run test:build-bundles && bare test/bare.js",
+    "test:build-project": "cd test/project && npm install",
+    "test:build-bundles": "mkdir -p test/bundles && npm run test:build-default-bundle  && npm run test:build-babel-bundle",
+    "test:build-default-bundle": "cd test/project && bare-pack app.js -o ../bundles/default.bundle",
+    "test:build-babel-bundle": "cd test/project && bare-pack app.js | bare-bundle-transform --plugin bare-bundle-transform-plugin-babel -o ../bundles/babel.bundle",
+    "test:build-local-babel-bundle": "cd test/project && bare-pack app.js | ../../bin.js --plugin ../plugins/babel.js -o ../bundles/local-babel.bundle",
     "lint": "prettier . --check"
   },
   "author": "Didericis",
@@ -16,13 +19,17 @@
     "bare-bundle-transform": "bin.js"
   },
   "imports": {
+    "child_process": {
+      "bare": "bare-subprocess",
+      "default": "node:child_process"
+    },
     "fs": {
       "bare": "bare-fs",
       "default": "node:fs"
     },
-    "url": {
-      "bare": "bare-url",
-      "default": "node:url"
+    "path": {
+      "bare": "bare-path",
+      "default": "node:path"
     },
     "process": {
       "bare": "bare-process",
@@ -40,6 +47,7 @@
         {
           "assets": [
             "package.json",
+            "package-lock.json",
             "CHANGELOG.md"
           ],
           "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
@@ -51,6 +59,7 @@
     "main"
   ],
   "devDependencies": {
+    "@babel/core": "^7.28.4",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -59,8 +68,7 @@
     "bare-pack": "^1.4.5",
     "brittle": "^3.18.3",
     "prettier": "^3.6.2",
-    "prettier-config-standard": "^7.0.0",
-    "regexpu": "^4.8.0"
+    "prettier-config-standard": "^7.0.0"
   },
   "dependencies": {
     "bare-bundle": "^1.9.0",
