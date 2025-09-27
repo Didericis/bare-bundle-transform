@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/Didericis/bare-bundle-transform/compare/v0.1.0...v0.2.0) (2025-09-27)
+
+
+### Features
+
+* allow for plugins to be node_modules ([cd89a6b](https://github.com/Didericis/bare-bundle-transform/commit/cd89a6bd31e6a4972c03793d2b69bb489c1877c2))
+
 # [0.1.0](https://github.com/Didericis/bare-bundle-transform/compare/v0.0.2...v0.1.0) (2025-09-26)
 
 
