@@ -1,3 +1,10 @@
+## [0.2.1](https://github.com/Didericis/bare-bundle-transform/compare/v0.2.0...v0.2.1) (2025-09-27)
+
+
+### Bug Fixes
+
+* update and correct info in readme ([3c54292](https://github.com/Didericis/bare-bundle-transform/commit/3c54292f504f86d4a7daa0a636a7ce983b5f272c))
+
 # [0.2.0](https://github.com/Didericis/bare-bundle-transform/compare/v0.1.0...v0.2.0) (2025-09-27)
 
 
