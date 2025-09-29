@@ -25,6 +25,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
+      - name: Install bare runtime
+        run: npm install -g bare
       - name: Install dependencies
         run: npm clean-install
       - name: Run tests

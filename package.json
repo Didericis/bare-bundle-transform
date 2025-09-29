@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint && npm run test:build-project && npm run test:build-bundles && bare test/bare.js",
     "test:build-project": "cd test/project && npm install",
-    "test:build-bundles": "mkdir -p test/bundles && npm run test:build-default-bundle  && npm run test:build-babel-bundle",
+    "test:build-bundles": "mkdir -p test/bundles && npm run test:build-default-bundle && npm run test:build-babel-bundle",
     "test:build-default-bundle": "cd test/project && bare-pack app.js -o ../bundles/default.bundle",
     "test:build-babel-bundle": "cd test/project && bare-pack app.js | ../../bin.js --plugin bare-bundle-transform-plugin-babel -o ../bundles/babel.bundle",
     "test:build-local-babel-bundle": "cd test/project && bare-pack app.js | ../../bin.js --plugin ../plugins/babel.js -o ../bundles/local-babel.bundle",
@@ -65,7 +65,6 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^12.0.2",
     "@semantic-release/release-notes-generator": "^14.1.0",
-    "bare": "^1.22.0",
     "bare-pack": "^1.4.5",
     "brittle": "^3.18.3",
     "prettier": "^3.6.2",
