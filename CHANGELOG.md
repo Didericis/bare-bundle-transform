@@ -1,3 +1,11 @@
+## [0.2.2](https://github.com/Didericis/bare-bundle-transform/compare/v0.2.1...v0.2.2) (2025-09-29)
+
+
+### Bug Fixes
+
+* build the local babel bundle for tests ([560a7bd](https://github.com/Didericis/bare-bundle-transform/commit/560a7bda951c7e97576f2b68233f60d73e80a5f5))
+* use bin.js when building default test bundle ([56ad86e](https://github.com/Didericis/bare-bundle-transform/commit/56ad86e2855c19aa28a05d8d257532a9973700bc))
+
 ## [0.2.1](https://github.com/Didericis/bare-bundle-transform/compare/v0.2.0...v0.2.1) (2025-09-27)
 
 
