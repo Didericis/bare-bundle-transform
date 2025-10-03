@@ -1,3 +1,15 @@
+# [1.0.0](https://github.com/Didericis/bare-bundle-transform/compare/v0.2.5...v1.0.0) (2025-10-03)
+
+
+### Code Refactoring
+
+* update release rules ([84699f1](https://github.com/Didericis/bare-bundle-transform/commit/84699f1d668703f23ffb236433fdb67ffaaaabc1))
+
+
+### BREAKING CHANGES
+
+* move out of prelease
+
 ## [0.2.5](https://github.com/Didericis/bare-bundle-transform/compare/v0.2.4...v0.2.5) (2025-10-03)
 
 ## [0.2.4](https://github.com/Didericis/bare-bundle-transform/compare/v0.2.3...v0.2.4) (2025-10-03)
