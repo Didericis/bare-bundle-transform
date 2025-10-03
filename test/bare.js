@@ -32,7 +32,7 @@ test('app bundle compiled with the local-babel plugin', (t) => {
   t.is(foo(), 'bar')
 })
 
-test('app bundle compiled with the local-babel plugin', (t) => {
+test('app bundle compiled with the bare-bundle-transform-babel-plugin', (t) => {
   const { foo, fooBar } = require('./bundles/babel.bundle')
 
   // checks if we've fixed the problematic package
