@@ -42,6 +42,11 @@
             },
             {
               "type": "refactor",
+              "breaking": true,
+              "release": "major"
+            },
+            {
+              "type": "refactor",
               "release": "patch"
             }
           ],

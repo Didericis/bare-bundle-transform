@@ -1,7 +1,8 @@
 const { spawn } = require('child_process')
 const test = require('brittle')
 const path = require('path')
-// NOTE: this assumes that the bundle has been transformed (see test:transform npm script)
+
+// NOTE: these tests assumes that the bundle has been transformed (see test:build-bundles npm script)
 
 test('app bundle compiled with no plugins', async (t) => {
   await t.exception(async () => {
