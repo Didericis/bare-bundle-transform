@@ -23,17 +23,9 @@
       "bare": "bare-subprocess",
       "default": "node:child_process"
     },
-    "fs": {
-      "bare": "bare-fs",
-      "default": "node:fs"
-    },
     "path": {
       "bare": "bare-path",
       "default": "node:path"
-    },
-    "process": {
-      "bare": "bare-process",
-      "default": "node:process"
     }
   },
   "release": {
