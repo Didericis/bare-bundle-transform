@@ -1,3 +1,5 @@
+## [1.0.1](https://github.com/didericis/bare-bundle-transform/compare/v1.0.0...v1.0.1) (2025-10-09)
+
 # [1.0.0](https://github.com/Didericis/bare-bundle-transform/compare/v0.2.5...v1.0.0) (2025-10-03)
 
 
