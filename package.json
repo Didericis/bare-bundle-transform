@@ -15,6 +15,7 @@
   "author": "Didericis",
   "license": "Apache-2.0",
   "prettier": "prettier-config-standard",
+  "repository": "github:didericis/bare-bundle-transform",
   "bin": {
     "bare-bundle-transform": "bin.js"
   },
